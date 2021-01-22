@@ -23,11 +23,34 @@
 
 This is about the relationship between $\mathbb{Z}[[x]]$, the ring of formal power series with integer coefficients and $\mathbb{Z}_p$, the ring of p-adic integers.  I will show that certain quotients of $\mathbb{Z}[[x]]$ are isomorphic to certain extensions of $\mathbb{Z}_p$.
 
+The following result is in Neukirch, page 114.  Perhaps some illuminating results in the exercises.
+
 \begin{theorem}\label{Z_p}
 $\mathbb{Z}[[x]]/(p-x) \cong \mathbb{Z}_p$
 \end{theorem}
 \begin{proof}
 Let the homomorphism $\varphi : \mathbb{Z}[[x]] \rightarrow \mathbb{Z}_p$ be given by $\varphi(x) = p$.  From the unique canonical representation of a p-adic integer $\alpha = \alpha_0 + \alpha_1 p  + \alpha_2 p^2 + \ldots$, with $\alpha_i \in \{0, 1, \ldots, p-1\}$, it is clear that $\varphi$ is surjective.  Further, zero has the unique canonical  representation with $\alpha_i = 0$.  For any $a(x) \in \mathbb{Z}[[x]]$, $a(x) = a_0 + a_1 x + a_2 x^2 + \ldots$, choose $b_1$ so that $a_0 - pb_1 \in \{0, 1, \ldots, p-1\}$.  Thus $a(x) - b_1(p-x) = (a_0 - pb_1) + (a_1 + b_1)x + a_2 x^2 + \ldots = a_0' + (a_1 + b_1)x + a_2 x^2 + \ldots$.  Choosing $b_2$ so that $(a_1 + b_1) - pb_2 \in \{0, 1, \ldots, p-1\}$, we get $a(x) - b_1(p-x) - b_2x(p-x) = a_0' + a_1'x + a_2 x^2 + \ldots$.  Continuing in this way, we get $a'(x)= a_0' + a_1'x + a_2' x^2 + \ldots = a(x) - b(x)(p-x)$ with $b(x) = b_1 + b_2x + b_3x^2 + \ldots$ and $a_i' \in \{0,1,\ldots,p-1\}$.  Thus if $\varphi(a) = 0$, then $a(x)$ differs from zero by a multiple of $(p-x)$.
+\end{proof}
+
+First stating Hensel's Lemma as it's stated in Neukirch
+
+\begin{theorem}[Hensel's Lemma]
+If a primitive polynomial $f(x) \in \mathcal{O}[x]$ admits modulo $\mathfrak{p}$ a factorization
+$$f(x) \equiv \bar{g}(x)\bar{h}(x) \bmod{\mathfrak{p}}$$
+into relatively prime polynomials $\bar{g},\bar{h} \in \kappa[x]$, then $f(x)$ admits a factorization
+$$f(x) = g(x)h(x)$$
+into polynomials $g,h \in \mathcal{O}[x]$ such that $\deg(g) = \deg(\bar{g})$ and
+$$g(x) \equiv \bar{g}(x) \bmod{\mathfrak{p}} \mbox{ and } h(x) \equiv \bar{h}(x) \bmod{\mathfrak{p}}.$$
+\end{theorem}
+\begin{proof}
+Let $d = \deg(f)$, $m = \deg(\bar{g})$, hence $d - m \ge \deg(\bar{h})$. Let $g_0, h_0 \in \mathcal{O}[x]$ be polynomials such that $g_0 \equiv \bar{g} \bmod \mathfrak{p}$, $h_0 \equiv \bar{h} \bmod \mathfrak{p}$ and $\deg(g_0) = m$, $\deg(h_0) \le d-m$. Since $(
+\bar{g}, \bar{h}) = 1$, there exist polynomials $a(x), b(x) \in \mathcal{O}[x]$ satisfying $ag_0 + bh_0 \equiv 1 \bmod \mathfrak{p}$.  Among the coefficients of the two polynomials $f-g_0h_0 \mbox{ and } ag_0 + bh_0 - 1 \in \mathfrak{p}[x]$ we pick one with minimum value and call it $\pi$.
+
+Let us look for polynomials $g$ and $h$ in the form:
+
+$$g = g_0 + p_1\pi + p_2\pi^2 + \ldots,$$
+$$h = h_0 + q_1\pi + q_2\pi^2 + \ldots,$$
+where $p_i, q_i \in \mathcal{O}[x]$ are polynomials of degree $< m$, resp. $\le d - m$.
 \end{proof}
 
 A brief reminder of the version of Hensel's Lemma we will use ahead.
