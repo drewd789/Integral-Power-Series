@@ -19,11 +19,14 @@
 
 \maketitle
 
+\section{Notes}
+When a power series an associate of a polynomial?
+
 \section{Introduction}
 
 This is about the relationship between $\mathbb{Z}[[x]]$, the ring of formal power series with integer coefficients and $\mathbb{Z}_p$, the ring of p-adic integers.  I will show that certain quotients of $\mathbb{Z}[[x]]$ are isomorphic to certain extensions of $\mathbb{Z}_p$.
 
-The following result is in Neukirch, page 114.  Perhaps some illuminating results in the exercises.
+The following result is in \cite{MR1697859}, page 114.  Perhaps some illuminating results in the exercises.
 
 \begin{theorem}\label{Z_p}
 $\mathbb{Z}[[x]]/(p-x) \cong \mathbb{Z}_p$
@@ -32,7 +35,7 @@ $\mathbb{Z}[[x]]/(p-x) \cong \mathbb{Z}_p$
 Let the homomorphism $\varphi : \mathbb{Z}[[x]] \rightarrow \mathbb{Z}_p$ be given by $\varphi(x) = p$.  From the unique canonical representation of a p-adic integer $\alpha = \alpha_0 + \alpha_1 p  + \alpha_2 p^2 + \ldots$, with $\alpha_i \in \{0, 1, \ldots, p-1\}$, it is clear that $\varphi$ is surjective.  Further, zero has the unique canonical  representation with $\alpha_i = 0$.  For any $a(x) \in \mathbb{Z}[[x]]$, $a(x) = a_0 + a_1 x + a_2 x^2 + \ldots$, choose $b_1$ so that $a_0 - pb_1 \in \{0, 1, \ldots, p-1\}$.  Thus $a(x) - b_1(p-x) = (a_0 - pb_1) + (a_1 + b_1)x + a_2 x^2 + \ldots = a_0' + (a_1 + b_1)x + a_2 x^2 + \ldots$.  Choosing $b_2$ so that $(a_1 + b_1) - pb_2 \in \{0, 1, \ldots, p-1\}$, we get $a(x) - b_1(p-x) - b_2x(p-x) = a_0' + a_1'x + a_2 x^2 + \ldots$.  Continuing in this way, we get $a'(x)= a_0' + a_1'x + a_2' x^2 + \ldots = a(x) - b(x)(p-x)$ with $b(x) = b_1 + b_2x + b_3x^2 + \ldots$ and $a_i' \in \{0,1,\ldots,p-1\}$.  Thus if $\varphi(a) = 0$, then $a(x)$ differs from zero by a multiple of $(p-x)$.
 \end{proof}
 
-First stating Hensel's Lemma as it's stated in Neukirch
+The following is a statement and proof of Hensel's Lemma taken verbatim from \cite{MR1697859}, page 129.
 
 \begin{theorem}[Hensel's Lemma]
 If a primitive polynomial $f(x) \in \mathcal{O}[x]$ admits modulo $\mathfrak{p}$ a factorization
@@ -50,7 +53,24 @@ Let us look for polynomials $g$ and $h$ in the form:
 
 $$g = g_0 + p_1\pi + p_2\pi^2 + \ldots,$$
 $$h = h_0 + q_1\pi + q_2\pi^2 + \ldots,$$
-where $p_i, q_i \in \mathcal{O}[x]$ are polynomials of degree $< m$, resp. $\le d - m$.
+where $p_i, q_i \in \mathcal{O}[x]$ are polynomials of degree $< m$, resp. $\le d - m$.  We then determine successively the polynomials
+$$g_{n-1} = g_0 + p_1\pi + p_2\pi^2 + \ldots + p_{n-1}\pi^{n-1},$$
+$$h_{n-1} = h_0 + q_1\pi + q_2\pi^2 + \ldots + q_{n-1}\pi^{n-1},$$
+in such a way that one has
+$$f \equiv g_{n-1}h_{n-1} \bmod \pi^n.$$
+Passing to the limit as $n \to \infty$, we will finally obtain the identity $f = gh$.  For $n=1$ the congruence is satisfied in view of our choice of $\pi$.  Let us assume that it is already established for some $n \ge 1$.  Then, in view of the relation
+$$g_n = g_{n-1} + p_n\pi^n, \mbox{ } h_n = h_{n-1} + q_n\pi^n,$$
+the condition on $g_n$, $h_n$ reduces to
+$$f - g_{n-1}h_{n-1} \equiv (g_{n-1}q_n + h_{n-1}p_n)\pi^n \bmod \pi^{n+1}.$$
+Dividing by $\pi^n$, this means
+$$g_{n-1}q_n + h_{n-1}p_n \equiv g_0q_n + h_0p_n \equiv f_n \bmod \pi,$$
+where $f_n = \pi^{-n}(f - g_{n-1}h_{n-1}) \in \mathcal{O}[x]$.  Since $g_0a + h_0b \equiv 1 \bmod \pi$, one has
+$$g_0af_n + h_0bf_n \equiv f_n \bmod \pi.$$
+At this point we would like to put $q_n = af_n$ and $p_n = bf_n$, but the degrees might be too big.  For this reason, we write
+$$b(x)f_n(x) = q(x)g_0(x) + p_n(x),$$
+where $\deg(p_n) < \deg(g_0) = m$.  Since $g_0 \equiv \bar{g} \bmod \mathfrak{p}$ and $\deg(g_0) = \deg(\bar{g})$, the highest coefficient of $g_0$ is a unit; hence $q(x) \in \mathcal{O}[x]$ and we obtain the congruence
+$$g_0(af_n + h_0q) + h_0p_n \equiv f_n \bmod \pi.$$
+Omitting now from the polynomial $af_n + h_0q$ all coefficients divisible by $\pi$, we get a polynomial $q_n$ such that $g_0q_n + h_0p_n \equiv f_n \bmod \pi$ and which, in view of $\deg(f_n) \le d$, $\deg(g_0) = m$ and $\deg(h_0p_n) < (d-m) + m = d$, has degree $\le d-m$ as required.
 \end{proof}
 
 A brief reminder of the version of Hensel's Lemma we will use ahead.
