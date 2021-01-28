@@ -20,21 +20,15 @@
 \maketitle
 
 \section{Notes}
-Write up Hensel's Lemma for power series.
+Most of these results can be generalized. Theorem \ref{hensel} can be extended to work for power series, including the part preserving the degree of one of the polynomial factors.  I still need to write this up.
 
-The power series $x + \ldots$ are irreducible?!  What are the quotients by them?
+There is a mistake in Proposition 3.4 of \cite{integerpowerseries_MR2416254}.  It is the case that $x + \ldots$ is irreducible as a power series although the constant coefficient is not a prime power (unless you consider 0 to be a prime...).  The quotients by these irreducibles are simply $\mathbb{Z}$.
 
-What about cases when a higher exponent is needed?
 
-When is a power series an associate of a polynomial?
+Some interesting questions:  Can Hensel's Lemma be extended to cases where it is necessary to look modulo a higher power of $p$ to find coprime factors?  When is a power series an associate of a polynomial?  Can a reducible polynomial always be factored as a polynomial and a power series?  How to show that a power series factorization exists.
 
-Can reducible polynomial always be factored as a polynomial and a power series?
-
-How to show that a power series factorization exists.
-
-Need to work on the language of $\alpha$ being a root.  The situation isn't as straightforward as it is with polynomials.
-\section{Draft}
-\begin{theorem}
+\section{Isomorphisms}
+\begin{theorem} \label{iso1}
 Let $f$ be a power series over $\mathbb{Z}$ with constant coefficient a prime power $q = p^n$.  Then $\mathbb{Z}[[x]]/f\mathbb{Z}[[x]] \cong \mathbb{Z}_p[[x]]/f\mathbb{Z}_p[[x]]$.
 \end{theorem}
 \begin{proof}
@@ -43,7 +37,7 @@ Given some coset $a + f\mathbb{Z}_p[[x]]$ with $a(x) = a_0 + a_1x + a_2x^2 + \ld
 It is clear that we can perform this same rewriting on an element $b(x) \in \mathbb{Z}[[x]]$ to obtain a unique canonical representative with coefficients from $0$ to $q-1$.  Because in both cases we get the same set of canonical representatives, this yields a bijection between $\mathbb{Z}[[x]]/f\mathbb{Z}[[x]]$ and $\mathbb{Z}_p[[x]]/f\mathbb{Z}_p[[x]]$ which is evidently a homomorphism.
 \end{proof}
 
-\begin{theorem}
+\begin{theorem} \label{iso2}
 Let $f=f_ex^e - f_{e-1}x^{e-1} - \ldots - f_0$ be a polynomial over $\mathbb{Z}_p$ with $p | f_i$ for $i \ne e$ and $p \nmid f_e$.  Then $\mathbb{Z}_p[[x]]/f\mathbb{Z}_p[[x]] \cong \mathbb{Z}_p[x]/f\mathbb{Z}_p[x]$.
 \end{theorem}
 \begin{proof}
@@ -62,28 +56,20 @@ A polynomial in $\mathbb{Z}$ is irreducible as a power series in $\mathbb{Z}$ if
 This is an immediate consequence of the previous two isomorphisms.
 \end{proof}
 
-\begin{corollary}
+\begin{corollary}\label{zp}
 $\mathbb{Z}[[x]]/(p-x) \cong \mathbb{Z}_p$.
 \end{corollary}
 
 This can also be found in \cite{MR1697859}, page 114.  
 
-\section{Introduction}
+\section{Quotients of $\mathbb{Z}[[x]]$}
 
-This is about the relationship between $\mathbb{Z}[[x]]$, the ring of formal power series with integer coefficients and $\mathbb{Z}_p$, the ring of p-adic integers.  I will show that certain quotients of $\mathbb{Z}[[x]]$ are isomorphic to certain extensions of $\mathbb{Z}_p$.
+Next I'll expand on the discussion of the relationship between $\mathbb{Z}[[x]]$, the ring of formal power series with integer coefficients and $\mathbb{Z}_p$, the ring of p-adic integers hinted at in Corollary \ref{zp}.  I will show that certain quotients of $\mathbb{Z}[[x]]$ are isomorphic to certain extensions of $\mathbb{Z}_p$.
 
-Perhaps some illuminating results in the exercises.
-
-\begin{theorem}\label{Z_p}
-$\mathbb{Z}[[x]]/(p-x) \cong \mathbb{Z}_p$
-\end{theorem}
-\begin{proof}
-Let the homomorphism $\varphi : \mathbb{Z}[[x]] \rightarrow \mathbb{Z}_p$ be given by $\varphi(x) = p$.  From the unique canonical representation of a p-adic integer $\alpha = \alpha_0 + \alpha_1 p  + \alpha_2 p^2 + \ldots$, with $\alpha_i \in \{0, 1, \ldots, p-1\}$, it is clear that $\varphi$ is surjective.  Further, zero has the unique canonical  representation with $\alpha_i = 0$.  For any $a(x) \in \mathbb{Z}[[x]]$, $a(x) = a_0 + a_1 x + a_2 x^2 + \ldots$, choose $b_1$ so that $a_0 - pb_1 \in \{0, 1, \ldots, p-1\}$.  Thus $a(x) - b_1(p-x) = (a_0 - pb_1) + (a_1 + b_1)x + a_2 x^2 + \ldots = a_0' + (a_1 + b_1)x + a_2 x^2 + \ldots$.  Choosing $b_2$ so that $(a_1 + b_1) - pb_2 \in \{0, 1, \ldots, p-1\}$, we get $a(x) - b_1(p-x) - b_2x(p-x) = a_0' + a_1'x + a_2 x^2 + \ldots$.  Continuing in this way, we get $a'(x)= a_0' + a_1'x + a_2' x^2 + \ldots = a(x) - b(x)(p-x)$ with $b(x) = b_1 + b_2x + b_3x^2 + \ldots$ and $a_i' \in \{0,1,\ldots,p-1\}$.  Thus if $\varphi(a) = 0$, then $a(x)$ differs from zero by a multiple of $(p-x)$.
-\end{proof}
 
 The following is a statement and proof of Hensel's Lemma taken verbatim from \cite{MR1697859}, page 129.
 
-\begin{theorem}[Hensel's Lemma]
+\begin{theorem}[Hensel's Lemma]\label{hensel}
 If a primitive polynomial $f(x) \in \mathcal{O}[x]$ admits modulo $\mathfrak{p}$ a factorization
 $$f(x) \equiv \bar{g}(x)\bar{h}(x) \bmod{\mathfrak{p}}$$
 into relatively prime polynomials $\bar{g},\bar{h} \in \kappa[x]$, then $f(x)$ admits a factorization
@@ -119,15 +105,6 @@ $$g_0(af_n + h_0q) + h_0p_n \equiv f_n \bmod \pi.$$
 Omitting now from the polynomial $af_n + h_0q$ all coefficients divisible by $\pi$, we get a polynomial $q_n$ such that $g_0q_n + h_0p_n \equiv f_n \bmod \pi$ and which, in view of $\deg(f_n) \le d$, $\deg(g_0) = m$ and $\deg(h_0p_n) < (d-m) + m = d$, has degree $\le d-m$ as required.
 \end{proof}
 
-A brief reminder of the version of Hensel's Lemma we will use ahead.
-
-\begin{theorem}[Hensel's Lemma]
-If a primitive polynomial $f(x) \in \mathbb{Z}_p[x]$ admits a factorization modulo $p$ $f(x) = \bar{g}(x)\bar{h}(x) \pmod{p}$ into relatively prime polynomials $\bar{g},\bar{h} \in \mathbb{Z}_p[x]$, then $f(x)$ admits a factorization $f(x) = g(x)h(x)$ into polynomials $g,h \in \mathbb{Z}_p[x]$ with $g(x) \equiv \bar{g}(x) \pmod{p}$, $h(x) \equiv \bar{h}(x) \pmod{p}$, and $deg(g) = deg(\bar{g})$.
-
-\end{theorem}
-
-See \cite{MR1697859} for a proof.
-
 \begin{theorem} \label{factor}
 Let $f(x) = p + x^e g(x) \in \mathbb{Z}[x]$, with $p$ a prime, $e \ge 1$, and $g(x)$ a polynomial with constant coefficient not divisible by $p$.  Then $f(x)$ factors as $f(x) = r(x)s(x)$, $r,s \in \mathbb{Z}_p[x]$, $deg(r) = e$, $r_0, \ldots, r_{e-1}$ divisible by $p$, $r_0$ not divisible by $p^2$, $r_e$ and $s_0$ units in $\mathbb{Z}_p$.
 \end{theorem}
@@ -136,20 +113,15 @@ Let $f(x) = p + x^e g(x) \in \mathbb{Z}[x]$, with $p$ a prime, $e \ge 1$, and $g
 $f(x) \equiv x^e g(x) \pmod{p}$, and by hypothesis $g(x)$ is not divisible by $x$ modulo $p$.  Thus by Hensel's Lemma we get a factorization $f(x) = r(x)s(x)$ with $deg(r) = e$.  Because $r(x) \equiv x^e \pmod{p}$, we must have that $r_0, \ldots, r_{e-1}$ are divisible by $p$ and $r_e$ not divisible by $p$.  Further, because $f_0 = r_0 s_0 = p$, $p^2$ does not divide $r_0$ and $s_0$ is a unit.
 \end{proof}
 
-\begin{theorem}\label{expand}
-Let $f(x) \in \mathbb{Z}[[x]]$ with $f_0 = p$.  Then $\mathbb{Z}[[x]]/(f) \cong \mathbb{Z}_p[[x]]/(f)$.
-\end{theorem}
-
-\begin{proof}
-Map $\mathbb{Z}[[x]]$ into $\mathbb{Z}_p[[x]]$ by the obvious inclusion.  Using the same sort of rewriting procedure as in Theorem \ref{Z_p}, every element in $\mathbb{Z}_p[[x]]$ differs from element in the inclusion by a multiple of $f$.  Again, by this rewriting procedure, anything in $\mathbb{Z}_p[[x]]$ that maps to zero in $\mathbb{Z}_p[[x]]/(f)$ differs from 0 by a multiple of (f).
-\end{proof}
 
 \begin{theorem}
 Let $f(x) \in \mathbb{Z}[x]$ be $f(x) = p + x^e g(x)$ with $g_0$ not divisible by p.  Then $\mathbb{Z}[[x]]/(f)$ is a totally ramified extension of $\mathbb{Z}_p$ of degree $e$.
 \end{theorem}
 
 \begin{proof}
-By Theorem \ref{factor}, $f(x) = r(x)s(x)$ with $deg(r) = e$ and $s_0$ a unit in $\mathbb{Z}_p$.  Thus $s(x)$ is a unit in $\mathbb{Z}_p[[x]]$.  Therefore, by Theorem \ref{expand}, $\mathbb{Z}[[x]]/(f) \cong \mathbb{Z}_p[[x]]/(f) \cong \mathbb{Z}_p[[x]]/(r)$.  If $\alpha$ is a root of $r(x)$, then $v_p(\alpha) = 1/e$.
+By Theorem \ref{factor}, $f(x) = r(x)s(x)$ with $deg(r) = e$ and $s_0$ a unit in $\mathbb{Z}_p$.  Thus $s(x)$ is a unit in $\mathbb{Z}_p[[x]]$.  Therefore, by Theorems \ref{iso1} and \ref{iso2}, $\mathbb{Z}[[x]]/f\mathbb{Z}[[x]] \cong \mathbb{Z}_p[[x]]/f\mathbb{Z}_p[[x]] \cong \mathbb{Z}_p[[x]]/r\mathbb{Z}_p[[x]] \cong \mathbb{Z}_p[x]/r\mathbb{Z}_p[x]$.
+
+Let $v_p$ be the $p$-adic valuation.  If $\alpha$ is a root of $r(x)$, then because $p \mid r_0, \ldots, r_{e-1}$, $v_p(\alpha^e) \ge 1$, and so $v_p(r_i \alpha^i) > 1$ for $0 < i < e$. Because $p^2 \nmid r_0$, $v_p(r_0) = 1 = v_p(\alpha^e)$, and so $v_p(\alpha) = 1/e$.
 
 \end{proof}
 
