@@ -20,7 +20,28 @@
 \maketitle
 
 \section{Notes}
-When a power series an associate of a polynomial?
+Write up Hensel's Lemma for power series.
+
+The power series $x + \ldots$ are irreducible?!  What are the quotients by them?
+
+What about cases when a higher exponent is needed?
+
+When is a power series an associate of a polynomial?
+
+Can reducible polynomial always be factored as a polynomial and a power series?
+
+How to show that a power series factorization exists.
+
+Need to work on the language of $\alpha$ being a root.  The situation isn't as straightforward as it is with polynomials.
+\section{Draft}
+\begin{theorem}
+Let $f$ be a power series over $\mathbb{Z}$ with constant coefficient a prime power $q = p^n$.  Then $\mathbb{Z}[[x]]/f\mathbb{Z}[[x]] \cong \mathbb{Z}_p[[x]]/f\mathbb{Z}_p[[x]]$.
+\end{theorem}
+\begin{proof}
+Given some coset $a + f\mathbb{Z}_p[[x]]$ with $a(x) = a_0 + a_1x + a_2x^2 + \ldots \in \mathbb{Z}_p[[x]]$, write $a_0$ as $a_0 = \alpha_0 + \alpha_1q + \alpha_2q^2 + \ldots$ with $\alpha_i \in \{0,1,\ldots,q-1\}$.  Then $a_0 = \alpha_0 + q(\alpha_1 + \alpha_2q + \ldots) = \alpha_0 + (q-f)(\alpha_1 + \alpha_2q + \ldots) + f(\alpha_1 + \alpha_2q + \ldots)$.  $q-f$ is some multiple of $x$, and so collecting terms we have $a(x) = \alpha_0 + b_1x + b_2x^2 + \ldots + \beta f$, $\beta \in \mathbb{Z}_p$.  Continuing in this way, we obtain a unique canonical representative $\gamma(x) = \gamma_0 + \gamma_1x + \gamma_2x^2 + \ldots$ of the coset $a + f\mathbb{Z}_p = \gamma + f\mathbb{Z}_p$ with $\gamma_i \in \{0,1,\ldots,q-1\}$.
+
+It is clear that we can perform this same rewriting on an element $b(x) \in \mathbb{Z}[[x]]$ to obtain a unique canonical representative with coefficients from $0$ to $q-1$.  Because in both cases we get the same set of canonical representatives, this yields a bijection between $\mathbb{Z}[[x]]/f\mathbb{Z}[[x]]$ and $\mathbb{Z}_p[[x]]/f\mathbb{Z}_p[[x]]$ which is evidently a homomorphism.
+\end{proof}
 
 \section{Introduction}
 
@@ -104,6 +125,7 @@ Let $f(x) \in \mathbb{Z}[x]$ be $f(x) = p + x^e g(x)$ with $g_0$ not divisible b
 
 \begin{proof}
 By Theorem \ref{factor}, $f(x) = r(x)s(x)$ with $deg(r) = e$ and $s_0$ a unit in $\mathbb{Z}_p$.  Thus $s(x)$ is a unit in $\mathbb{Z}_p[[x]]$.  Therefore, by Theorem \ref{expand}, $\mathbb{Z}[[x]]/(f) \cong \mathbb{Z}_p[[x]]/(f) \cong \mathbb{Z}_p[[x]]/(r)$.  If $\alpha$ is a root of $r(x)$, then $v_p(\alpha) = 1/e$.
+
 \end{proof}
 
 \bibliographystyle{unsrt}
