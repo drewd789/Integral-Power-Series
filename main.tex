@@ -43,11 +43,36 @@ Given some coset $a + f\mathbb{Z}_p[[x]]$ with $a(x) = a_0 + a_1x + a_2x^2 + \ld
 It is clear that we can perform this same rewriting on an element $b(x) \in \mathbb{Z}[[x]]$ to obtain a unique canonical representative with coefficients from $0$ to $q-1$.  Because in both cases we get the same set of canonical representatives, this yields a bijection between $\mathbb{Z}[[x]]/f\mathbb{Z}[[x]]$ and $\mathbb{Z}_p[[x]]/f\mathbb{Z}_p[[x]]$ which is evidently a homomorphism.
 \end{proof}
 
+\begin{theorem}
+Let $f=f_ex^e - f_{e-1}x^{e-1} - \ldots - f_0$ be a polynomial over $\mathbb{Z}_p$ with $p | f_i$ for $i \ne e$ and $p \nmid f_e$.  Then $\mathbb{Z}_p[[x]]/f\mathbb{Z}_p[[x]] \cong \mathbb{Z}_p[x]/f\mathbb{Z}_p[x]$.
+\end{theorem}
+\begin{proof}
+Without loss of generality, assume $f_e = 1$.  Let $f_i = pg_i$ for $i \ne e$ Given some coset $a + f\mathbb{Z}_p[[x]]$ with $a(x) = a_0^{(0)} + a_1^{(0)}x + a_2^{(0)}x^2 + \ldots \in \mathbb{Z}_p[[x]]$, write $a$ as $$a(x) = a_0^{(0)} + a_1^{(0)}x + \ldots + a_{e-1}^{(0)}x^{e-1} + x^e(a_e^{(0)} + a_{e+1}^{(0)}x + \ldots)$$.  Then $$a(x) = a_0^{(0)} + a_1^{(0)}x + \ldots + a_{e-1}^{(0)}x^{e-1} + (x^e - f)(a_e + a_{e+1}x + \ldots) + f(a_e + a_{e+1}x + \ldots) = $$
+$$a_0 + a_1x + \ldots + a_{e-1}x^{e-1} + p(g_0 + g_1x + \ldots + g_{e-1}x^{e-1})(a_e + a_{e+1}x + \ldots) + \alpha f$$.  Collecting terms, we get $$a(x) = a_0^{(0)} + a_1^{(0)}x + \ldots + a_{e-1}^{(0)}x^{e-1} + p(b_0 + b_1x + \ldots) + \alpha f = $$
+$$a_0^{(1)} + a_1^{(1)}x + \ldots + a_{e-1}^{(1)}x^{e-1} + px^e(b_e + b_{e+1}x + \dots) + \alpha f =$$
+$$a_0^{(2)} + a_1^{(2)}x + \ldots + a_{e-1}^{(2)}x^{e-1} + p^2(c_0 + c_1x + \ldots) + \alpha'f$$.  Continuing in this way, we see that at each step $a_i^{(k+1)}$ differs from $a_i^{(k)}$ by a multiple of $p^k$.  Thus $a_i^{(j)} \to a_i$, and we obtain a unique canonical representative $\hat{a}(x) = a_0 + a_1x + \ldots + a_{e-1}x^{e-1}$ of the coset $a + f\mathbb{Z}_p[[x]] = \hat{a} + f\mathbb{Z}_p[[x]]$.
+
+Again, this rewriting procedure clearly also works for finding a unique canonical representative of the coset $b + \mathbb{Z}_p[x]$, yielding the same set of canonical representatives and thus a bijection between $\mathbb{Z}_p[[x]]/f\mathbb{Z}_p[[x]]$ and $\mathbb{Z}_p[[x]]/f\mathbb{Z}_p[[x]]$ which is evidently a homomorphism.
+\end{proof}
+
+\begin{theorem}
+A polynomial in $\mathbb{Z}$ is irreducible as a power series in $\mathbb{Z}$ if and only if it is irreducible as a polynomial in $\mathbb{Z}_p$.
+\end{theorem}
+\begin{proof}
+This is an immediate consequence of the previous two isomorphisms.
+\end{proof}
+
+\begin{corollary}
+$\mathbb{Z}[[x]]/(p-x) \cong \mathbb{Z}_p$.
+\end{corollary}
+
+This can also be found in \cite{MR1697859}, page 114.  
+
 \section{Introduction}
 
 This is about the relationship between $\mathbb{Z}[[x]]$, the ring of formal power series with integer coefficients and $\mathbb{Z}_p$, the ring of p-adic integers.  I will show that certain quotients of $\mathbb{Z}[[x]]$ are isomorphic to certain extensions of $\mathbb{Z}_p$.
 
-The following result is in \cite{MR1697859}, page 114.  Perhaps some illuminating results in the exercises.
+Perhaps some illuminating results in the exercises.
 
 \begin{theorem}\label{Z_p}
 $\mathbb{Z}[[x]]/(p-x) \cong \mathbb{Z}_p$
