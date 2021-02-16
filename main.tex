@@ -32,7 +32,7 @@ Some interesting questions:  Can Hensel's Lemma be extended to cases where it is
 Let $f$ be a power series over $\mathbb{Z}$ with constant coefficient a prime power $q = p^n$.  Then $\mathbb{Z}[[x]]/f\mathbb{Z}[[x]] \cong \mathbb{Z}_p[[x]]/f\mathbb{Z}_p[[x]]$.
 \end{theorem}
 \begin{proof}
-Given some coset $a + f\mathbb{Z}_p[[x]]$ with $a(x) = a_0 + a_1x + a_2x^2 + \ldots \in \mathbb{Z}_p[[x]]$, write $a_0$ as $a_0 = \alpha_0 + \alpha_1q + \alpha_2q^2 + \ldots$ with $\alpha_i \in \{0,1,\ldots,q-1\}$.  Then $a_0 = \alpha_0 + q(\alpha_1 + \alpha_2q + \ldots) = \alpha_0 + (q-f)(\alpha_1 + \alpha_2q + \ldots) + f(\alpha_1 + \alpha_2q + \ldots)$.  $q-f$ is some multiple of $x$, and so collecting terms we have $a(x) = \alpha_0 + b_1x + b_2x^2 + \ldots + \beta f$, $\beta \in \mathbb{Z}_p$.  Continuing in this way, we obtain a unique canonical representative $\gamma(x) = \gamma_0 + \gamma_1x + \gamma_2x^2 + \ldots$ of the coset $a + f\mathbb{Z}_p = \gamma + f\mathbb{Z}_p$ with $\gamma_i \in \{0,1,\ldots,q-1\}$.
+Given some coset $a + f\mathbb{Z}_p[[x]]$ with $a(x) = a_0 + a_1x + a_2x^2 + \ldots \in \mathbb{Z}_p[[x]]$, write $a_0$ as $a_0 = \alpha_0 + \alpha_1q + \alpha_2q^2 + \ldots$ with $\alpha_i \in \{0,1,\ldots,q-1\}$.  Then $a_0 = \alpha_0 + q(\alpha_1 + \alpha_2q + \ldots) = \alpha_0 + (q-f)(\alpha_1 + \alpha_2q + \ldots) + f(\alpha_1 + \alpha_2q + \ldots)$.  $q-f$ is some multiple of $x$, and so collecting terms we have $a(x) = \alpha_0 + b_1x + b_2x^2 + \ldots + \beta f$, $\beta \in \mathbb{Z}_p[[x]]$.  Continuing in this way, we obtain a unique canonical representative $\gamma(x) = \gamma_0 + \gamma_1x + \gamma_2x^2 + \ldots$ of the coset $a + f\mathbb{Z}_p[[x]] = \gamma + f\mathbb{Z}_p[[x]]$ with $\gamma_i \in \{0,1,\ldots,q-1\}$.
 
 It is clear that we can perform this same rewriting on an element $b(x) \in \mathbb{Z}[[x]]$ to obtain a unique canonical representative with coefficients from $0$ to $q-1$.  Because in both cases we get the same set of canonical representatives, this yields a bijection between $\mathbb{Z}[[x]]/f\mathbb{Z}[[x]]$ and $\mathbb{Z}_p[[x]]/f\mathbb{Z}_p[[x]]$ which is evidently a homomorphism.
 \end{proof}
@@ -41,10 +41,10 @@ It is clear that we can perform this same rewriting on an element $b(x) \in \mat
 Let $f=f_ex^e - f_{e-1}x^{e-1} - \ldots - f_0$ be a polynomial over $\mathbb{Z}_p$ with $p | f_i$ for $i \ne e$ and $p \nmid f_e$.  Then $\mathbb{Z}_p[[x]]/f\mathbb{Z}_p[[x]] \cong \mathbb{Z}_p[x]/f\mathbb{Z}_p[x]$.
 \end{theorem}
 \begin{proof}
-Without loss of generality, assume $f_e = 1$.  Let $f_i = pg_i$ for $i \ne e$ Given some coset $a + f\mathbb{Z}_p[[x]]$ with $a(x) = a_0^{(0)} + a_1^{(0)}x + a_2^{(0)}x^2 + \ldots \in \mathbb{Z}_p[[x]]$, write $a$ as $$a(x) = a_0^{(0)} + a_1^{(0)}x + \ldots + a_{e-1}^{(0)}x^{e-1} + x^e(a_e^{(0)} + a_{e+1}^{(0)}x + \ldots)$$.  Then $$a(x) = a_0^{(0)} + a_1^{(0)}x + \ldots + a_{e-1}^{(0)}x^{e-1} + (x^e - f)(a_e + a_{e+1}x + \ldots) + f(a_e + a_{e+1}x + \ldots) = $$
-$$a_0 + a_1x + \ldots + a_{e-1}x^{e-1} + p(g_0 + g_1x + \ldots + g_{e-1}x^{e-1})(a_e + a_{e+1}x + \ldots) + \alpha f$$.  Collecting terms, we get $$a(x) = a_0^{(0)} + a_1^{(0)}x + \ldots + a_{e-1}^{(0)}x^{e-1} + p(b_0 + b_1x + \ldots) + \alpha f = $$
+Without loss of generality, assume $f_e = 1$.  Let $f_i = pg_i$ for $i \ne e$ Given some coset $a + f\mathbb{Z}_p[[x]]$ with $a(x) = a_0^{(0)} + a_1^{(0)}x + a_2^{(0)}x^2 + \ldots \in \mathbb{Z}_p[[x]]$, write $a$ as $$a(x) = a_0^{(0)} + a_1^{(0)}x + \ldots + a_{e-1}^{(0)}x^{e-1} + x^e(a_e^{(0)} + a_{e+1}^{(0)}x + \ldots).$$  Then $$a(x) = a_0^{(0)} + a_1^{(0)}x + \ldots + a_{e-1}^{(0)}x^{e-1} + (x^e - f)(a_e^{0} + a_{e+1}^{0}x + \ldots) + f(a_e^{0} + a_{e+1}^{0}x + \ldots) = $$
+$$a_0^{0} + a_1^{0}x + \ldots + a_{e-1}^{0}x^{e-1} + p(g_0 + g_1x + \ldots + g_{e-1}x^{e-1})(a_e + a_{e+1}x + \ldots) + \alpha f.$$  Collecting terms, we get $$a(x) = a_0^{(0)} + a_1^{(0)}x + \ldots + a_{e-1}^{(0)}x^{e-1} + p(b_0 + b_1x + \ldots) + \alpha f = $$
 $$a_0^{(1)} + a_1^{(1)}x + \ldots + a_{e-1}^{(1)}x^{e-1} + px^e(b_e + b_{e+1}x + \dots) + \alpha f =$$
-$$a_0^{(2)} + a_1^{(2)}x + \ldots + a_{e-1}^{(2)}x^{e-1} + p^2(c_0 + c_1x + \ldots) + \alpha'f$$.  Continuing in this way, we see that at each step $a_i^{(k)}$ differs from $a_i^{(k-1)}$ by a multiple of $p^k$.  Thus $a_i^{(j)} \to a_i$, and we obtain a unique canonical representative $\hat{a}(x) = a_0 + a_1x + \ldots + a_{e-1}x^{e-1}$ of the coset $a + f\mathbb{Z}_p[[x]] = \hat{a} + f\mathbb{Z}_p[[x]]$.
+$$a_0^{(2)} + a_1^{(2)}x + \ldots + a_{e-1}^{(2)}x^{e-1} + p^2(c_0 + c_1x + \ldots) + \alpha'f.$$  Continuing in this way, we see that at each step $a_i^{(k)}$ differs from $a_i^{(k-1)}$ by a multiple of $p^k$.  Thus $a_i^{(j)} \to a_i$, and we obtain a unique canonical representative $\hat{a}(x) = a_0 + a_1x + \ldots + a_{e-1}x^{e-1}$ of the coset $a + f\mathbb{Z}_p[[x]] = \hat{a} + f\mathbb{Z}_p[[x]]$.
 
 Again, this rewriting procedure clearly also works for finding a unique canonical representative of the coset $b + \mathbb{Z}_p[x]$, yielding the same set of canonical representatives and thus a bijection between $\mathbb{Z}_p[[x]]/f\mathbb{Z}_p[[x]]$ and $\mathbb{Z}_p[x]/f\mathbb{Z}_p[x]$ which is evidently a homomorphism.
 \end{proof}
@@ -60,32 +60,27 @@ This is an immediate consequence of the previous two isomorphisms.
 $\mathbb{Z}[[x]]/(p-x) \cong \mathbb{Z}_p$.
 \end{corollary}
 
-This can also be found in \cite{MR1697859}, page 114.  
+This can also be found in \cite{MR1697859}, page 114.
 
-\section{Quotients of $\mathbb{Z}[[x]]$}
-
-Next I'll expand on the discussion of the relationship between $\mathbb{Z}[[x]]$, the ring of formal power series with integer coefficients and $\mathbb{Z}_p$, the ring of p-adic integers hinted at in Corollary \ref{zp}.  I will show that certain quotients of $\mathbb{Z}[[x]]$ are isomorphic to certain extensions of $\mathbb{Z}_p$.
-
-
-The following is a statement and proof of Hensel's Lemma taken verbatim from \cite{MR1697859}, page 129.
+The following is a statement and proof of Hensel's Lemma taken verbatim from \cite{MR1697859}, page 129, and adapted for use on power series.
 
 \begin{theorem}[Hensel's Lemma]\label{hensel}
-If a primitive polynomial $f(x) \in \mathcal{O}[x]$ admits modulo $\mathfrak{p}$ a factorization
+If a primitive power series $f(x) \in \mathcal{O}[[x]]$ admits modulo $\mathfrak{p}$ a factorization
 $$f(x) \equiv \bar{g}(x)\bar{h}(x) \bmod{\mathfrak{p}}$$
-into relatively prime polynomials $\bar{g},\bar{h} \in \kappa[x]$, then $f(x)$ admits a factorization
+into relatively prime power series $\bar{g},\bar{h} \in \kappa[[x]]$, then $f(x)$ admits a factorization
 $$f(x) = g(x)h(x)$$
-into polynomials $g,h \in \mathcal{O}[x]$ such that $\deg(g) = \deg(\bar{g})$ and
-$$g(x) \equiv \bar{g}(x) \bmod{\mathfrak{p}} \mbox{ and } h(x) \equiv \bar{h}(x) \bmod{\mathfrak{p}}.$$
+into power series $g,h \in \mathcal{O}[x]$ such that $$g(x) \equiv \bar{g}(x) \bmod{\mathfrak{p}} \mbox{ and } h(x) \equiv \bar{h}(x) \bmod{\mathfrak{p}}.$$
+Moreover, if $\bar{g}$ is a polynomial, then $g$ is a polynomial with $\deg(g) = \deg(\bar{g})$.
 \end{theorem}
 \begin{proof}
-Let $d = \deg(f)$, $m = \deg(\bar{g})$, hence $d - m \ge \deg(\bar{h})$. Let $g_0, h_0 \in \mathcal{O}[x]$ be polynomials such that $g_0 \equiv \bar{g} \bmod \mathfrak{p}$, $h_0 \equiv \bar{h} \bmod \mathfrak{p}$ and $\deg(g_0) = m$, $\deg(h_0) \le d-m$. Since $(
-\bar{g}, \bar{h}) = 1$, there exist polynomials $a(x), b(x) \in \mathcal{O}[x]$ satisfying $ag_0 + bh_0 \equiv 1 \bmod \mathfrak{p}$.  Among the coefficients of the two polynomials $f-g_0h_0 \mbox{ and } ag_0 + bh_0 - 1 \in \mathfrak{p}[x]$ we pick one with minimum value and call it $\pi$.
+Let $d = \deg(f)$, $m = \deg(\bar{g})$, hence $d - m \ge \deg(\bar{h})$ (with the convention that the degree of a power series which is not a polynomial is infinite). Let $g_0, h_0 \in \mathcal{O}[[x]]$ be power series such that $g_0 \equiv \bar{g} \bmod \mathfrak{p}$, $h_0 \equiv \bar{h} \bmod \mathfrak{p}$ and $\deg(g_0) = m$, $\deg(h_0) \le d-m$. Since $(
+\bar{g}, \bar{h}) = 1$, there exist power series $a(x), b(x) \in \mathcal{O}[[x]]$ satisfying $ag_0 + bh_0 \equiv 1 \bmod \mathfrak{p}$.  Among the coefficients of the two power series $f-g_0h_0 \mbox{ and } ag_0 + bh_0 - 1 \in \mathfrak{p}[[x]]$ we pick one with minimum value and call it $\pi$.
 
-Let us look for polynomials $g$ and $h$ in the form:
+Let us look for power series $g$ and $h$ in the form:
 
 $$g = g_0 + p_1\pi + p_2\pi^2 + \ldots,$$
 $$h = h_0 + q_1\pi + q_2\pi^2 + \ldots,$$
-where $p_i, q_i \in \mathcal{O}[x]$ are polynomials of degree $< m$, resp. $\le d - m$.  We then determine successively the polynomials
+where $p_i, q_i \in \mathcal{O}[[x]]$ are power series of degree $< m$, resp. $\le d - m$.  We then determine successively the power series
 $$g_{n-1} = g_0 + p_1\pi + p_2\pi^2 + \ldots + p_{n-1}\pi^{n-1},$$
 $$h_{n-1} = h_0 + q_1\pi + q_2\pi^2 + \ldots + q_{n-1}\pi^{n-1},$$
 in such a way that one has
@@ -96,14 +91,39 @@ the condition on $g_n$, $h_n$ reduces to
 $$f - g_{n-1}h_{n-1} \equiv (g_{n-1}q_n + h_{n-1}p_n)\pi^n \bmod \pi^{n+1}.$$
 Dividing by $\pi^n$, this means
 $$g_{n-1}q_n + h_{n-1}p_n \equiv g_0q_n + h_0p_n \equiv f_n \bmod \pi,$$
-where $f_n = \pi^{-n}(f - g_{n-1}h_{n-1}) \in \mathcal{O}[x]$.  Since $g_0a + h_0b \equiv 1 \bmod \pi$, one has
+where $f_n = \pi^{-n}(f - g_{n-1}h_{n-1}) \in \mathcal{O}[[x]]$.  Since $g_0a + h_0b \equiv 1 \bmod \pi$, one has
 $$g_0af_n + h_0bf_n \equiv f_n \bmod \pi.$$
 At this point we would like to put $q_n = af_n$ and $p_n = bf_n$, but the degrees might be too big.  For this reason, we write
 $$b(x)f_n(x) = q(x)g_0(x) + p_n(x),$$
-where $\deg(p_n) < \deg(g_0) = m$.  Since $g_0 \equiv \bar{g} \bmod \mathfrak{p}$ and $\deg(g_0) = \deg(\bar{g})$, the highest coefficient of $g_0$ is a unit; hence $q(x) \in \mathcal{O}[x]$ and we obtain the congruence
+where $\deg(p_n) < \deg(g_0) = m$.  Since $g_0 \equiv \bar{g} \bmod \mathfrak{p}$ and $\deg(g_0) = \deg(\bar{g})$, the highest coefficient of $g_0$ is a unit; hence $q(x) \in \mathcal{O}[[x]]$ and we obtain the congruence
 $$g_0(af_n + h_0q) + h_0p_n \equiv f_n \bmod \pi.$$
-Omitting now from the polynomial $af_n + h_0q$ all coefficients divisible by $\pi$, we get a polynomial $q_n$ such that $g_0q_n + h_0p_n \equiv f_n \bmod \pi$ and which, in view of $\deg(f_n) \le d$, $\deg(g_0) = m$ and $\deg(h_0p_n) < (d-m) + m = d$, has degree $\le d-m$ as required.
+Omitting now from the power series $af_n + h_0q$ all coefficients divisible by $\pi$, we get a power series $q_n$ such that $g_0q_n + h_0p_n \equiv f_n \bmod \pi$ and which, in view of $\deg(f_n) \le d$, $\deg(g_0) = m$ and $\deg(h_0p_n) < (d-m) + m = d$, has degree $\le d-m$ as required.
 \end{proof}
+
+The following comes from \cite{MR1697859}, page 116, exercise 9.
+Let $a = a_0 + a_1x + \ldots$.  Suppose $a_0$ is a positive power of prime $p$ and $p \nmid a_1$.  Then $a$ is irreducible.
+\begin{theorem}[$p$-adic Weierstrass Preparation Theorem] \label{preparation}
+Every nonzero power series $a(x) = a_0 + a_1x + a_2x^2 + \ldots \in \mathbb{Z}_p[[x]]$ admits a unique representation $a(x) = p^\mu a'(x)u(x)$ where $p^\mu$ is the highest power of $p$ dividing $a$, $u(x)$ is a unit in $\mathbb{Z}_p[[x]]$, and $a'(x) \in \mathbb{Z}_p[x]$ is a monic polynomial of degree $e$, with $e$ being the least value such that $p^\mu \mid a_e$.
+\end{theorem}
+\begin{proof}
+Let $b(x) = p^{-\mu}a(x)$.  $b \equiv x^e(1 + \ldots) \bmod p$, and so by Hensel's Lemma $b = a'u$ with $\deg(a) = e$, the leading term of $a'$ is a unit, and $u \equiv 1 + \ldots \bmod p$, so $u$ is a unit in $\mathbb{Z}_p$.  Without loss of generality, assume the leading coefficient of $a'$ is $1$.  Suppose $b = b'v$ with $b'$ and $v$ satisfying the conditions above.  Then $a' = b'(vu^{-1})$, and because $\deg(a') = \deg(b') = e$,
+$\deg(vu^{-1}) = 1$, and so $u = v$ and $a' = b'$.
+\end{proof}
+
+\begin{theorem}
+A primitive power series $a(x)$ over $\mathbb{Z}$ with constant coefficient a power of prime $p$ is irreducible as a power series if and only if the associated polynomial $a'(x)$ of Theorem \ref{preparation} is irreducible as a polynomial over $\mathbb{Z}_p$.
+\end{theorem}
+\begin{proof}
+$\mathbb{Z}[[x]]/a\mathbb{Z}[[x]] \cong \mathbb{Z}_p[[x]]/a\mathbb{Z}_p[[x]] \cong \mathbb{Z}_p[[x]]/ a'\mathbb{Z}_p[[x]] \cong \mathbb{Z}_p[x]/a'\mathbb{Z}_p[x]$.
+\end{proof}
+
+\begin{corollary}
+Let $a = a_0 + a_1x + \ldots$.  Suppose $a_0$ is a positive power of prime $p$ and $p \nmid a_1$.  Then $a$ is irreducible.
+\end{corollary}
+
+\section{Quotients of $\mathbb{Z}[[x]]$}
+
+Next I'll expand on the discussion of the relationship between $\mathbb{Z}[[x]]$, the ring of formal power series with integer coefficients and $\mathbb{Z}_p$, the ring of p-adic integers hinted at in Corollary \ref{zp}.  I will show that certain quotients of $\mathbb{Z}[[x]]$ are isomorphic to certain extensions of $\mathbb{Z}_p$.
 
 \begin{theorem} \label{factor}
 Let $f(x) = p + x^e g(x) \in \mathbb{Z}[x]$, with $p$ a prime, $e \ge 1$, and $g(x)$ a polynomial with constant coefficient not divisible by $p$.  Then $f(x)$ factors as $f(x) = r(x)s(x)$, $r,s \in \mathbb{Z}_p[x]$, $deg(r) = e$, $r_0, \ldots, r_{e-1}$ divisible by $p$, $r_0$ not divisible by $p^2$, $r_e$ and $s_0$ units in $\mathbb{Z}_p$.
